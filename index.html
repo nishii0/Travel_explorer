@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image" href="travel2img.webp">
+    <title>Travel Explorer - Discover Your Next Adventure</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+         <div class="nav-container">
+            <div class="logo">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                    <path d="M3.6 9h16.8"></path>
+                    <path d="M3.6 15h16.8"></path>
+                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                </svg>
+                <span>TravelExplorer</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Explore the World</h1>
+            <p class="hero-subtitle">Discover amazing destinations, check weather conditions, and plan your perfect trip</p>
+            
+            <!-- Search Box -->
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search for a destination (e.g., Paris, Tokyo, New York)"
+                >
+                <button id="searchBtn" class="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    Explore
+                </button>
+            </div>
+
+            <!-- Quick Destinations -->
+            <div class="quick-destinations">
+                <span>Popular:</span>
+                <button class="tag" data-city="Paris">Paris</button>
+                <button class="tag" data-city="Tokyo">Tokyo</button>
+                <button class="tag" data-city="New York">New York</button>
+                <button class="tag" data-city="Bali">Bali</button>
+                <button class="tag" data-city="Dubai">Dubai</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="destinations" class="results-section">
+        <div class="container">
+            <!-- Weather Card -->
+            <div id="weatherCard" class="weather-card hidden">
+                <div class="weather-header">
+                    <h2 id="cityName">City Name</h2>
+                    <p id="countryName">Country</p>
+                </div>
+                <div class="weather-body">
+                    <div class="weather-main">
+                        <div class="temperature">
+                            <span id="temp">--</span>°C
+                        </div>
+                        <div class="weather-icon">
+                            <img id="weatherIcon" src="" alt="Weather">
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail">
+                            <span class="label">Feels like</span>
+                            <span id="feelsLike">--°C</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Humidity</span>
+                            <span id="humidity">--%</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Wind Speed</span>
+                            <span id="windSpeed">-- km/h</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Description</span>
+                            <span id="description">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div id="photoGallery" class="photo-gallery hidden">
+                <h2 class="gallery-title">Discover <span id="galleryCity"></span></h2>
+                <div id="photoGrid" class="photo-grid">
+                    <!-- Photos will be inserted here -->
+                </div>
+                <button id="loadMore" class="load-more-btn hidden">Load More Photos</button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loader" class="loader hidden">
+                <div class="spinner"></div>
+                <p>Loading amazing content...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message hidden">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <p id="errorText">Something went wrong. Please try again.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Travel Explorer</h2>
+            <p>Plan your perfect trip with real-time weather information and stunning destination photos. Our platform makes travel planning simple and inspiring.</p>
+            <div class="features">
+                <div class="feature">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <h3>Real-time Weather</h3>
+                    <p>Get current weather conditions and forecasts for any destination</p>
+                </div>
+                <div class="feature">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    <h3>Beautiful Photos</h3>
+                    <p>Explore stunning images from photographers around the world</p>
+                </div>
+                <div class="feature">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <h3>Easy Planning</h3>
+                    <p>Simple interface to help you plan your next adventure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Travel Explorer. Made with ❤️ for travelers</p>
+            <p class="api-credits">Powered by Unsplash & OpenWeather APIs</p>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal hidden">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption">
+            <p id="modalCaption"></p>
+            <a id="photographerLink" href="#" target="_blank" rel="noopener">Photo by <span id="photographerName"></span></a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
