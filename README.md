@@ -12,6 +12,17 @@ Travel Explorer is a simple and interactive web application that helps users exp
 
 ⚡ Smooth UI – modal view for images, loader animation, error handling.
 
+🔑 API Keys Setup
+To run this project:
+1. Get a free API key from [OpenWeather](https://openweathermap.org/api).
+2. Get a free API key from [Unsplash](https://unsplash.com/developers).
+3. Open `script.js` and replace the placeholders:
+   ```js
+   const API_CONFIG = {
+     OPENWEATHER_API_KEY: "YOUR_OPENWEATHER_API_KEY",
+     UNSPLASH_ACCESS_KEY: "YOUR_UNSPLASH_ACCESS_KEY"
+   };
+
 🛠️ Tech Stack
 
 HTML5
