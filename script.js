@@ -3,8 +3,8 @@ require('dotenv').config();
 // IMPORTANT: Replace these with your own API keys
 
 const API_CONFIG = {
-    OPENWEATHER_API_KEY: process.env.OPENWEATHER_API_KEY,
-    UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY
+    OPENWEATHER_API_KEY: YOUR_OPENWEATHER_API_KEY,
+    UNSPLASH_ACCESS_KEY: YOUR_UNSPLASH_ACCESS_KEY
 };
 
 // DOM Elements
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Check if API keys are configured
 function checkAPIKeys() {
-    if (API_CONFIG.OPENWEATHER_API_KEY=== process.env.OPENWEATHER_API_KEY||
-    API_CONFIG.UNSPLASH_ACCESS_KEY=== process.env.UNSPLASH_ACCESS_KEY) {
+    if (API_CONFIG.OPENWEATHER_API_KEY=== YOUR_OPENWEATHER_API_KEY||
+    API_CONFIG.UNSPLASH_ACCESS_KEY=== YOUR_UNSPLASH_ACCESS_KEY) {
         showError('Please configure your API keys in the JavaScript file. You need to sign up for free API keys from Unsplash and OpenWeather.');
     }
 }
@@ -357,3 +357,4 @@ if (typeof module !== 'undefined' && module.exports) {
         formatDate
     };
 }
+
